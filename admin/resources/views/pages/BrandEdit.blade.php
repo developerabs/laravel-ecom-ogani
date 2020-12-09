@@ -3,20 +3,20 @@
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
         <a class="breadcrumb-item" href="index.html">Starlight</a>
-        <a class="breadcrumb-item" href="index.html">Category</a>
-        <span class="breadcrumb-item active">Update Category</span>
+        <a class="breadcrumb-item" href="index.html">Brand</a>
+        <span class="breadcrumb-item active">Update Brand</span>
     </nav>
     <div class="sl-pagebody">
         <div class="card pd-20 pd-sm-40">
-            <h6 class="card-body-title">Update this Category</h6>
-            <form action="{{ url('/updateCategorys') }}" method="POST">
+            <h6 class="card-body-title">Update this Brand</h6>
+            <form action="{{ url('/updateBrand') }}" method="POST">
                 @csrf
                 <input type="hidden" name="id" value="{{ $data->id}}">
                 <div class="form-layout">
                     <div class="row mg-b-10">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <input class="form-control" type="text" name="category_update" value="{{ $data->category_name}}" placeholder="Enter Category Name....." required>
+                                <input class="form-control" type="text" name="brand_update" value="{{ $data->brand_name}}" placeholder="Enter Brand Name....." required>
                             </div>
                         </div><!-- col-4 -->
                     </div><!-- row -->

@@ -20,11 +20,15 @@ class CategoryController extends Controller
     {
         $category_name = $request->category_name;
         $category_slug = Str::slug($category_name, '-');
-        CategoryModel::insert([
+        $result = CategoryModel::insert([
             'category_name' => $category_name,
             'category_slug' => $category_slug,
         ]);
-        return redirect('/categorys');
+        if ($result == true) {
+            return redirect('/categorys');
+        }else{
+            return redirect('/categorys');
+        }
     }
     public function changeStatus($id)
     {

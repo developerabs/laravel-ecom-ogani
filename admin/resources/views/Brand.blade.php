@@ -1,5 +1,5 @@
 @extends('layouts.app2')
-@section('categoryPage') active @endsection
+@section('brandPage') active @endsection
 @section('content')
 <div class="sl-mainpanel">
     <nav class="breadcrumb sl-breadcrumb">
@@ -9,20 +9,20 @@
     </nav>
     <div class="sl-pagebody">
         <div class="card pd-20 pd-sm-40">
-            <h6 class="card-body-title">Add New Category</h6>
-            <form action="{{ url('/addCategorys') }}" method="POST">
+            <h6 class="card-body-title">Add New Brand</h6>
+            <form action="{{ url('/addBrand') }}" method="POST">
                 @csrf
                 <div class="form-layout">
                     <div class="row mg-b-10">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <input class="form-control" type="text" name="category_name" value="" placeholder="Enter Category Name....." required>
+                                <input class="form-control" type="text" name="brand_name" value="" placeholder="Enter Brand Name....." required>
                             </div>
                         </div><!-- col-4 -->
                     </div><!-- row -->
 
                     <div class="form-layout-footer">
-                        <button type="submit" class="btn btn-info mg-r-5">Add New</button>
+                        <button type="submit" style="cursor: pointer;" class="btn btn-info mg-r-5">Add New</button>
                     </div><!-- form-layout-footer -->
                 </div><!-- form-layout -->
             </form>
@@ -30,7 +30,7 @@
     </div>
     <div class="sl-pagebody">
         <div class="sl-page-title">
-            <h5>All Categorys</h5>
+            <h5>All Brands</h5>
             <p>DataTables is a plug-in for the jQuery Javascript library.</p>
         </div><!-- sl-page-title -->
         <div class="card pd-20 pd-sm-40">
@@ -50,19 +50,19 @@
                         @foreach($data as $row)
                         <tr>
                             <td>{{ $i }}</td>
-                            <td>{{ $row->category_name }}</td>
-                            <td>{{ $row->category_slug }}</td>
+                            <td>{{ $row->brand_name }}</td>
+                            <td>{{ $row->brand_slug }}</td>
                             <td>
                                 @if($row->status == 1)
-                                    <a href="{{ url('/changeStatus/'.$row->id) }}" class="btn btn-sm btn-success">Active</a>
+                                    <a href="{{ url('/changeBrandStatus/'.$row->id) }}" class="btn btn-sm btn-success">Active</a>
                                 @else
-                                    <a href="{{ url('/changeStatus/'.$row->id) }}" class="btn btn-sm btn-danger">Inactive</a>
+                                    <a href="{{ url('/changeBrandStatus/'.$row->id) }}" class="btn btn-sm btn-danger">Inactive</a>
                                 @endif
                                 
                             </td>
                             <td>
-                                <a href="{{ url('/editCat/'.$row->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
-                                <a href="{{ url('/deleteCat/'.$row->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                <a href="{{ url('/editBrand/'.$row->id) }}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i></a>
+                                <a href="{{ url('/deleteBrand/'.$row->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @php($i++)

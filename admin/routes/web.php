@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,10 @@ Route::get('/changeStatus/{id}', [CategoryController::class, 'changeStatus']);
 Route::get('/editCat/{id}', [CategoryController::class, 'editCat']);
 Route::post('/updateCategorys', [CategoryController::class, 'updateCategorys']);
 Route::get('/deleteCat/{id}', [CategoryController::class, 'deleteCat']);
+//================================= brand route ==============================================
+Route::get('/brands', [BrandController::class, 'index']);
+Route::post('/addBrand', [BrandController::class, 'addBrand']);
+Route::get('/changeBrandStatus/{id}', [BrandController::class, 'changeBrandStatus']);
+Route::get('/editBrand/{id}', [BrandController::class, 'editBrand']);
+Route::post('/updateBrand', [BrandController::class, 'updateBrand']);
+Route::get('/deleteBrand/{id}', [BrandController::class, 'deleteBrand']);
